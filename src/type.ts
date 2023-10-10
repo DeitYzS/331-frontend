@@ -15,4 +15,5 @@ export interface OrganizerItem {
   name: string
   address: string
   images: string[]
+  roles: string[]
 }

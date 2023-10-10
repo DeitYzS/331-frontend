@@ -64,7 +64,6 @@ const isError = computed(() => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    viewBox="0 0 24 24"
                     d="M6 18L18 M6M 6112 12"
                 />
                 </svg>

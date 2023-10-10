@@ -48,7 +48,8 @@ const organizer =ref<OrganizerItem> ({
   id: 0,
   name: ' ',
   address: ' ',
-  images: []
+  images: [],
+  roles: []
 })
 
 function  saveOrganizer() {
