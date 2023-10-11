@@ -41,10 +41,13 @@
       <h3>Who is your organizer?</h3>
       <label>Select an Organizer</label>
       <BaseSelect
-        v-model="event.organizer.id"
-        label="Organizer"
-        :options="organizers"
-      />
+				label="Organizer"
+				v-model="event.organizer!.id"
+				:options="organizers"
+				:key-extractor="(x) => x.id"
+				:value-extractor="(x) => x.id"
+				:text-extractor="(x) => x.name" 
+        />
 
       <h3>The image of the Event</h3>
       <ImageUpload 
@@ -67,7 +70,7 @@ import { useRouter} from "vue-router";
 import { useMessageStore } from '@/stores/message'
 import BaseInput from "@/components/BaseInput.vue";
 import OrganizerService from "@/services/OrganizerService";
-import {AxiosResponse } from "axios/.index";
+import type {AxiosResponse } from "axios";
 import BaseSelect from "@/components/BaseSelect.vue";
 import ImageUpload from "@/components/ImageUpload.vue";
 
@@ -94,7 +97,8 @@ const event =ref<EventItem> ({
     id: 0,
     name: ' ',
     address: ' ',
-    images: []
+    images: [],
+    roles: []
   },
   time: ' ',
   title: ' ',

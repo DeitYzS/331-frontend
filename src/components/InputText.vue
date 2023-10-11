@@ -2,8 +2,6 @@
 import UniqueID from '@/features/UniqueID'
 import ErrorMessage from '@/components/ErrorMesage.vue'
 import { computed } from 'vue'
-import { isError } from 'util'
-import type path from 'path'
 
 export interface Props {
     placeholder?: string

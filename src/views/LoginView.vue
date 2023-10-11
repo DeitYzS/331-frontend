@@ -18,7 +18,7 @@
               <label for="email" class=" block text-sm font-meduim leading-6 text-gray-900">
                 Email address
               </label>
-              <InputText type="text" v-model="email" :error="errors['email']"></InputText>
+              <InputText type="text" v-model="username" :error="errors['username']"></InputText>
           </div>
         <div>
           <div class=" flex items-centeer justify-between">
@@ -79,23 +79,26 @@ import { useMessageStore } from '@/stores/message';
 const messageStore = useMessageStore()
 const router = useRouter()
 const authStore = useAuthStore()
-const validatationSchema = yup.object ({
-  email: yup.string().required('The email is required'),
-  password: yup.string().required('The password is required')
-})
 
-const { errors, handleSubmit } = useForm({
-  validatationSchema,
-  initialValues: {
-    email: '',
-    password: ''
-  }
-})
+const validationSchema = yup.object({
+        username: yup.string().required("Username is required"),
+        password: yup
+            .string()
+            .required("Password is required")
+    });
+    const { errors, handleSubmit } = useForm({
+        validationSchema,
+        initialValues: {
+            username: "",
+            password: "",
+        },
+    });
 
-const { value: email } = useField<string> ('email')
+const { value: username } = useField<string> ('username')
 const { value: password } = useField<string>('password')
 const onSubmit = handleSubmit((values) => {
-  authStore.login(values.email, values.password)
+  authStore
+  .login(values.username, values.password)
   .then(() => {
     console.log('login success');
     router.push({ name: 'event-list'})

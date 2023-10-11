@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { OrganizerItem } from '@/type'
+import type { OrganizerItem } from '@/type'
 import type { PropType } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMessageStore } from '@/stores/message'
